@@ -1,6 +1,7 @@
 ---
 title: "AI Ghibli Images: Whimsy Meets Privacy Risks"
 slug: ai-ghibli-images-whimsy-meets-privacy-risks
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1743514845906/874f40a3-9f04-4a0c-8e6b-d7f912a7a40d.jpeg
 
 ---
 
