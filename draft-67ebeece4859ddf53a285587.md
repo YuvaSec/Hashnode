@@ -1,6 +1,7 @@
 ---
 title: "What is Shadow AI, and Why Should Your Enterprise Care?"
 slug: what-is-shadow-ai-and-why-should-your-enterprise-care
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1743596105934/4c2ca896-7dd7-403d-bb5c-efa4bdb1a50f.jpeg
 
 ---
 
@@ -137,7 +138,7 @@ Even if someone’s using an approved app, they might accidentally turn on new A
     
 * Run misuse scenarios so they’re ready for real-world risks.
     
-* Make training part of the culture not just a checkbox to tick.
+* Make training part of the culture, not just a checkbox to tick.
     
 
 ### 4\. Monitor and Detect Usage
