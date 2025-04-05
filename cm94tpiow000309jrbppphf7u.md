@@ -28,20 +28,20 @@ With the rise of AI-driven automation and open-source utilities, the development
 
 ### How Attackers Log In Without a Password
 
-Many web apps rely on vulnerable login scripts like:
+*Many web apps rely on vulnerable login scripts like:*
 
 ```sql
 SELECT * FROM users WHERE username = '$input' AND password = '$pass';
 ```
 
-If an attacker inputs:
+*If an attacker inputs:*
 
 ```plaintext
 Username: ' OR '1'='1
 Password: anything
 ```
 
-The query becomes:
+*The query becomes:*
 
 ```sql
 SELECT * FROM users WHERE username = '' OR '1'='1' AND password = 'anything';
@@ -123,13 +123,13 @@ If attackers get past the login, they might use SQL injection to **exfiltrate da
 
 ### 🧪 Hypothetical Vulnerable Query
 
-If the original code on the server is:
+*If the original code on the server is:*
 
 ```sql
 SELECT name, email FROM users WHERE username = 'input_here';
 ```
 
-Then with the injection:
+*Then with the injection:*
 
 ```sql
 SELECT name, email FROM users WHERE username = '' UNION SELECT credit_card_number, expiry_date FROM payments--';
@@ -158,7 +158,7 @@ This **bypasses authentication** or **retrieves unintended data**, like credit c
 
 ### SQL Destruction in One Line
 
-Some attackers go beyond theft—they destroy:
+*Some attackers go beyond theft—they destroy:*
 
 ```sql
 '; DELETE FROM users; --
@@ -177,19 +177,19 @@ Some attackers go beyond theft—they destroy:
 
 ### Example in context:
 
-Suppose the backend code is like this (which is vulnerable):
+*Suppose the backend code is like this (which is vulnerable):*
 
 ```sql
 SELECT * FROM users WHERE username = 'user_input';
 ```
 
-If someone enters:
+*If someone enters:*
 
 ```text
 ' ; DELETE FROM users; --
 ```
 
-It becomes:
+*It becomes:*
 
 ```sql
 SELECT * FROM users WHERE username = ''; DELETE FROM users; --';
@@ -204,16 +204,12 @@ This executes **two statements**:
 
 The `--` comments out the rest of the line.
 
----
-
 ### ⚠️ Why Is This Dangerous?
 
 * **All user records could be deleted**.
     
 * This is why **SQL injection is one of the most critical web vulnerabilities**.
     
-
----
 
 ### 🔐 How to Prevent This
 
@@ -232,7 +228,7 @@ The `--` comments out the rest of the line.
 
 ### 🖥️ From SQL to System-Level Control
 
-Some databases (e.g., Microsoft SQL Server) allow system commands:
+*Some databases (e.g., Microsoft SQL Server) allow system commands:*
 
 ```sql
 EXEC xp_cmdshell('net user hacker pass123 /add')
@@ -315,7 +311,7 @@ We opened with a terrifying idea—losing control of your digital identity. Now 
 
 ---
 
-## **Further Reading**
+### **Further Reading**
 
 1. [OWASP SQL Injection Cheat Sheet](https://owasp.org/www-community/attacks/SQL_Injection)
     
