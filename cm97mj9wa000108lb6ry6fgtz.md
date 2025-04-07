@@ -2,7 +2,7 @@
 title: "Your Website Is Naked: The XSS Attacks That Bypass Every Security Tool"
 seoTitle: "XSS Explained: Types, Real Attacks, and How to Prevent It"
 seoDescription: "Learn how XSS works, see real-world attacks, and get expert strategies to detect, prevent, and mitigate Cross-Site Scripting (XSS) vulnerabilities."
-datePublished: Mon Apr 07 2025 22:09:25 GMT+0000 (Coordinated Universal Time)
+datePublished: Sun Apr 06 2025 22:00:00 GMT+0000 (Coordinated Universal Time)
 cuid: cm97mj9wa000108lb6ry6fgtz
 slug: your-website-is-naked-the-xss-attacks-that-bypass-every-security-tool
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1744063584015/4e33eb7a-f8fc-4881-b50a-cdb997196255.jpeg
