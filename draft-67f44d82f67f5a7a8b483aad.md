@@ -1,7 +1,11 @@
 ---
 title: "Web Server NIGHTMARE "
+seoTitle: "Remote Code Execution: How Web Servers Get Hacked"
+seoDescription: "Discover how hackers exploit Remote Code Execution (RCE) vulnerabilities in web servers and learn practical strategies to defend against them."
 slug: web-server-nightmare
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1744126771721/b570a02d-90e3-4ad1-8010-48cf496ceaa8.jpeg
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1744126803060/27ccc2f3-ae7c-4556-bc25-0a29cc053123.jpeg
+ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1744126901211/8a73f6c3-b7be-491d-b41a-2eaf45e6da37.jpeg
+tags: remotecodeexecution, rce, webserversecurity, cybersecurity-1, ethicalhacking
 
 ---
 
