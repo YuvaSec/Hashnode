@@ -5,7 +5,7 @@ cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1745687374605/5c64bf6
 
 ---
 
-## **Introduction**
+## **Introductio**
 
 Imagine sending a secret note to your best friend in class, but there's a hidden tunnel where anyone can grab and read it before it reaches them. Scary, right? That’s *kind of* what happens with your phone because of something called **SS7**.
 
