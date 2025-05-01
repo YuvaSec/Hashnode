@@ -1,4 +1,7 @@
 ---
+title: " WHO’S IN THE MIDDLE?"
+slug: whos-in-the-middle
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1746059964179/64cc6b87-41a5-4030-8b9f-3f963c0cae6e.jpeg
 
 ---
 
@@ -24,6 +27,8 @@ A MITM attack occurs when a malicious actor inserts themselves into a conversati
 
 > **Redirects local network traffic by associating the attacker’s MAC address with a legitimate IP. Common in LAN environments.**
 
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746059993115/912194b5-a6dd-46c3-aa72-ee98d7b8f001.jpeg align="center")
+
 #### **Anecdote**
 
 Imagine you're trying to send a note to your friend across the classroom. You pass it through a classmate, but little do you know—they quietly rewrite the message and then pass it on. You think you’re still talking directly to your friend, but someone else is in the middle, twisting your words.
@@ -33,6 +38,8 @@ Imagine you're trying to send a note to your friend across the classroom. You pa
 ### **2\. DNS Spoofing**
 
 > **Replaces legitimate DNS responses with malicious ones. Redirects users to fake websites.**
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060041721/69084ef6-5986-41c6-b5f5-1d25802af3da.jpeg align="center")
 
 #### **Anecdote**
 
@@ -44,6 +51,8 @@ You ask your GPS to guide you to your favorite bakery. But someone hacked the ma
 
 > **Creates fake websites with misleading SSL certificates to trick users into handing over credentials.**
 
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060048378/010c4163-d677-4c54-b8ce-0a5f19e84f4e.jpeg align="center")
+
 #### **Anecdote**
 
 You receive a sealed envelope stamped with what looks like the official seal of a government office. But it's a forged seal, and you hand over sensitive documents to a fraudster without realizing it.
@@ -53,6 +62,8 @@ You receive a sealed envelope stamped with what looks like the official seal of 
 ### **4\. SSL/TLS Stripping**
 
 > **Downgrades HTTPS connections to HTTP, exposing plaintext data.**
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060057819/ad39543c-13ed-4148-b8ea-5fa50af981a9.jpeg align="center")
 
 #### **Anecdote**
 
@@ -64,6 +75,8 @@ Imagine someone removes the tinted windows from your car ride, exposing everythi
 
 > **Steals session cookies to impersonate authenticated users.**
 
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060064817/7ddef530-b9f7-417c-9e07-7350bcff63b8.jpeg align="center")
+
 #### **Anecdote**
 
 You walk out of a coffee shop for a second, leaving your laptop open and logged into your email. Someone sneaks in, sits down, and starts sending emails as if they were you.
@@ -73,6 +86,8 @@ You walk out of a coffee shop for a second, leaving your laptop open and logged 
 ### **6\. Wi-Fi Eavesdropping (Evil Twin)**
 
 > **Creates rogue Wi-Fi networks mimicking legitimate ones to intercept user traffic.**
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060067931/e302a988-187b-4f14-b61e-0d524e93595c.jpeg align="center")
 
 #### **Anecdote**
 
@@ -84,6 +99,8 @@ You're in a coffee shop and see a network named “Free\_Cafe\_WiFi.” You conn
 
 > **Monitors and alters sensitive emails, often used in financial fraud.**
 
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060081250/66e51967-f564-4b09-83fd-9f4036b08b58.jpeg align="center")
+
 #### **Anecdote**
 
 Imagine you're sending an email to your accountant with your bank details, but someone hacks your inbox, reads the message, and changes the account number to theirs. You just wired your savings to a thief.
@@ -94,6 +111,8 @@ Imagine you're sending an email to your accountant with your bank details, but s
 
 > **Masquerades as trusted devices within local or enterprise networks.**
 
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060088951/79dfbddf-f81e-4132-b788-576659d352e6.jpeg align="center")
+
 #### **Anecdote**
 
 It’s like someone dressing up in your dad’s clothes and voice, fooling the smart home to unlock doors and turn off alarms—because it “thinks” it's him.
@@ -103,6 +122,8 @@ It’s like someone dressing up in your dad’s clothes and voice, fooling the s
 ### **9\. Sniffing**
 
 > **Uses packet sniffers to gather unencrypted traffic.**
+
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060091445/c1953a32-9637-468f-8135-4ca1ce25885c.jpeg align="center")
 
 #### **Anecdote**
 
@@ -122,6 +143,8 @@ Commentary: These expert opinions underline the shift from traditional endpoints
 
 ## **Real-World Cases: When MITM Goes Live**
 
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060105814/68feef31-a776-41f2-94a2-7345e68df04b.png align="center")
+
 * **2022 Office 365 Campaign**: Phishing combined with MITM techniques compromised over 10,000 accounts.
     
 * **2024 Evil Twin on Flight**: Australian authorities busted a fake in-flight Wi-Fi scam.
@@ -137,6 +160,8 @@ Commentary: These expert opinions underline the shift from traditional endpoints
 
 ## **How to Protect Yourself from MITM Attacks**
 
+![](https://cdn.hashnode.com/res/hashnode/image/upload/v1746060110958/a9c1eae2-eb09-47d0-8393-875d0f7bd185.jpeg align="center")
+
 * **Use Secure Networks**: Avoid using public Wi-Fi networks for sensitive transactions.​
     
 * **Verify Website Security**: Ensure websites use HTTPS, indicating a secure connection.​
@@ -147,8 +172,6 @@ Commentary: These expert opinions underline the shift from traditional endpoints
     
 * **Be Cautious with Emails**: Beware of phishing emails that may attempt to trick you into revealing personal information.​
     
-
-**Anecdote:** Think of these precautions as locking your doors and windows at night. While you can't see potential intruders, taking these steps makes it much harder for them to get in.​
 
 ---
 
